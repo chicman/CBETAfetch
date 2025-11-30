@@ -1,6 +1,7 @@
 import os
 import urllib.request
 import urllib.error
+import ssl
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -24,8 +25,14 @@ class SutraDownloader:
             if progress_callback:
                 progress_callback(f"Starting download: {filename}")
             
+            # Create SSL context that doesn't verify certificates
+            # This is safe for trusted sources like CBETA
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = False
+            ssl_context.verify_mode = ssl.CERT_NONE
+            
             # Use urllib to download
-            with urllib.request.urlopen(url, timeout=30) as response:
+            with urllib.request.urlopen(url, timeout=30, context=ssl_context) as response:
                 total_size = int(response.getheader('Content-Length') or 0)
                 block_size = 8192
                 wrote = 0

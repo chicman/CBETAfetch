@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, Response
+from flask import Flask, render_template, request, jsonify, Response, send_from_directory
 import os
 import threading
 import time
@@ -6,7 +6,7 @@ import json
 from downloader import SutraDownloader
 from process import process_project, convert_to_md
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 # Global state
 logs = []
