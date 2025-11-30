@@ -58,14 +58,9 @@ The project primarily requires `Flask`.
 pip install flask
 ```
 
-*Note: If you plan to use the legacy desktop GUI (`gui.py`), you will need `tkinter`. This is usually included with Python on Windows and macOS. On Linux (e.g., Ubuntu), you may need to install it:*
-```bash
-sudo apt-get install python3-tk
-```
-
 ## Usage
 
-### Web Interface (Recommended)
+### Web Interface
 
 1.  **Start the Application**:
     ```bash
@@ -96,10 +91,9 @@ sudo apt-get install python3-tk
     -   In the **Process** tab, click **Convert to MD**.
     -   This will convert the processed `.txt` files in the `complete` folder to `.md` format.
 
-### Command Line / Legacy GUI
+### Command Line Processing
 
--   **Legacy GUI**: Run `python gui.py` for a Tkinter-based desktop interface (Note: May not have all the latest features of the web UI).
--   **CLI Processing**: Run `python process.py --help` to see command-line options for processing files.
+Run `python process.py --help` to see command-line options for processing downloaded files.
 
 ## License
 
