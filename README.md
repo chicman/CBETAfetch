@@ -23,40 +23,19 @@
 
 ## Installation
 
-### 1. Clone the Repository
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/chicman/CBETAfetch.git
+    cd CBETAfetch
+    ```
 
-```bash
-git clone https://github.com/chicman/CBETAfetch.git
-cd CBETAfetch
-```
-
-### 2. Set Up a Virtual Environment (Recommended)
-
-**MacOS / Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-**Windows (PowerShell):**
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-**Windows (Command Prompt):**
-```cmd
-python -m venv venv
-venv\Scripts\activate.bat
-```
-
-### 3. Install Dependencies
-
-The project primarily requires `Flask`.
-
-```bash
-pip install flask
-```
+2.  **Install Dependencies**:
+    
+    The project requires Python 3.6+ and Flask.
+    
+    ```bash
+    pip install flask
+    ```
 
 ## Usage
 
