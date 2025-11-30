@@ -16,7 +16,9 @@ class SutraDownloader:
             return False, "Cancelled"
             
         filename = url.split('/')[-1]
-        filepath = os.path.join(self.download_dir, filename)
+        # Normalize download directory for cross-platform compatibility
+        download_dir = os.path.abspath(os.path.normpath(self.download_dir))
+        filepath = os.path.join(download_dir, filename)
         
         try:
             if progress_callback:
@@ -130,8 +132,10 @@ class SutraDownloader:
                     
                 urls.append(url)
 
-        if not os.path.exists(self.download_dir):
-            os.makedirs(self.download_dir)
+        # Normalize and resolve the download directory path for cross-platform compatibility
+        download_dir = os.path.abspath(os.path.normpath(self.download_dir))
+        if not os.path.exists(download_dir):
+            os.makedirs(download_dir)
 
         self.stop_event.clear()
         self.executor = ThreadPoolExecutor(max_workers=self.max_workers)
