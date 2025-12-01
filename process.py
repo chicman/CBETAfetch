@@ -60,7 +60,7 @@ def process_folder(working_dir, name, output_dir, removeFolder=False, logger=def
         return
     sutra_id = basename(txt_list[0]).split('_')[0]
     sutra_name = ""
-    with open(txt_list[0]) as firstfile:
+    with open(txt_list[0], encoding='utf-8') as firstfile:
         try:
             head = [next(firstfile) for x in range(2)]
             if len(head) >= 2:
@@ -80,9 +80,9 @@ def process_folder(working_dir, name, output_dir, removeFolder=False, logger=def
     is_first = True
     output_filename = join(output_dir, "%s_《%s》.txt" % (sutra_id, sutra_name))
     
-    with open(output_filename, 'w') as out:
+    with open(output_filename, 'w', encoding='utf-8') as out:
         for f in txt_list:
-            with open(f) as txt:
+            with open(f, encoding='utf-8') as txt:
                 for line in txt:
                     if line.startswith('#'):
                         if is_first:
